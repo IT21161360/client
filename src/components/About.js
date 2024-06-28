@@ -1,10 +1,12 @@
 import React from 'react'
 import './About.css'
-import {usestate,useEffect} from 'react-router-dom'
+import {useState,useEffect} from 'react'
+import './styles.css'
+import Button from 'react-bootstrap/Button'
 
 const About = () => {
 
-  const [darkMode , setDarkMode] = usestate(false);
+  const [darkMode , setDarkMode] = useState(false);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('darkMode') === 'true';
@@ -23,6 +25,15 @@ const About = () => {
   return (
     <>
       <div>
+
+      <div className="container text-center mt-4">
+        <h1>Welcome to the About Page</h1>
+        <Button className="toggle-btn" onClick={toggleDarkMode}>
+          {darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+        </Button>
+      </div>
+
+
       <div className='container mb3 about_container'  style={{minHeight:"100%"}}>
       <div className='container main_container d-flex justify-content-around flex-wrap'>
       <div className='left-container mt-5' style={{width:500,marginTop:"95px",marginLeft: "20px auto"}}>
